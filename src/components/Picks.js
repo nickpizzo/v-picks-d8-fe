@@ -1,43 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Picks = (props) => {
+    return !props.loading && props.picks.map(pick => (
+      <div key={pick.nid}>
+        <span>{pick.title}</span>
+        <button onClick={() => {props.deletePick(pick.nid)}}>X</button>
+      </div>
+    ));
+};
 
+Picks.propTypes = {
+  picks: PropTypes.array
+};
 
-    if (props.loading === false) {
-      
-      props.picks.map(pick => {
-        console.log(pick);
-          return (
-            <div>
-              <div>{pick}</div>
-            </div>
-          )
-        })
-    } else {
-      return null;
-    }
-
-
-    
-
-    // const picksList = picks.map(pick => {
-    //   return (
-    //     <div>
-    //       <div>{ pick.nid }</div>
-         
-    //     </div>
-    //   );
-    // })
-    // return (
-    //   <div>test</div>
-    // )
+Picks.defaultProps = {
+  picks: [],
 };
 
 export default Picks;
-
-// const loadedPicks = picks.map(pick => {
-//   return (
-//       <div>test</div>
-  
-//   );
-// })

@@ -27,7 +27,7 @@ class NewPick extends Component {
     const { target } = event;
     const { value, name } = target;
     this.setState({ [name]: value });
-    console.log(this.state);
+
   };
 
   render() {
